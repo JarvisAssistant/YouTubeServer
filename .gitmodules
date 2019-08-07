@@ -1,0 +1,3 @@
+[submodule "limitedmessagesocket"]
+	path = limitedmessagesocket
+	url = https://github.com/jarvisassistant/limitedmessagesocket
