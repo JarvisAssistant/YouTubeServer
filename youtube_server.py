@@ -57,10 +57,10 @@ class YouTubeServer:
             try:
                 client_socket.send(message)
                 ret = client_socket.receive()
-                print('print this %s' % ret)
                 future.deliver(json.loads(ret))
             except Exception as e:
                 print('Exception: %s' % str(e))
+                future.deliver({})
                 client_socket.close()
                 return
 
@@ -80,10 +80,3 @@ class Future:
         with self.cv:
             self.cv.wait_for(lambda: not self.item is None)
             return self.item
-
-
-
-
-
-
-
